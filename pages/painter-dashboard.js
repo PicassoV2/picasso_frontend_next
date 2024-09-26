@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from 'react'
+import { PainterDashboardComponent } from '@/components/painter-dashboard'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import Loader from '../components/Loader';
+
+function Dashboard() {
+  const [userData, setUserData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const router = useRouter()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsLoading(false)
+      router.push('/login')
+      return
+    }
+
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/login/', {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        setUserData(response.data)
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error fetching user data:', error)
+        setTimeout(() => {
+          setIsLoading(false)
+          if (!userData) {
+            console.log('Loading without user data after timeout')
+          }
+        }, 5000)
+      }
+    }
+
+    fetchUserData()
+  }, [router])
+
+  if (isLoading) {
+    return <Loader />
+  }
+
+  return (
+    <>
+      <PainterDashboardComponent userData={userData} />
+    </>
+  )
+}
+
+export default Dashboard
