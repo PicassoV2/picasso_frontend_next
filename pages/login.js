@@ -25,7 +25,7 @@ function Login() {
       if (response && response.data) {
         localStorage.setItem('token', response.data.access); // Save the access token
         console.log('Login successful:', response.data);
-        alert('Login successful!');
+        // alert('Login successful!');
         router.push('/painter-dashboard');
       }
     } catch (error) {
