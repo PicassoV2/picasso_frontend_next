@@ -19,9 +19,11 @@ function Dashboard() {
 
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/login/', {
+        const response = await axios.get('http://127.0.0.1:8000/api/profile/', {
           headers: { Authorization: `Bearer ${token}` }
         })
+        console.log("the user data is >>>>" + JSON.stringify(response.data))
+        
         setUserData(response.data)
         setIsLoading(false)
       } catch (error) {
@@ -30,8 +32,11 @@ function Dashboard() {
           setIsLoading(false)
           if (!userData) {
             console.log('Loading without user data after timeout')
+          }else{
+            console.log(userData());
+            
           }
-        }, 5000)
+        }, 15000)
       }
     }
 
