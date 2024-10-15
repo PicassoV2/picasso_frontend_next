@@ -21,7 +21,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login/', formData);
+      const response = await axios.post('https://paintingauctionbackend-production.up.railway.app/api/login/', formData);
       if (response && response.data) {
         localStorage.setItem('token', response.data.access); // Save the access token
         console.log('Login successful:', response.data);

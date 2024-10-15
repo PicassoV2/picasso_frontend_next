@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Pencil, Plus, Trash2 } from "lucide-react"
+// import { Pencil, Plus, Trash2 } from "lucide-react"
 
 export function PainterDashboardComponent({ userData }) {
   const [profile, setProfile] = useState({
@@ -24,7 +24,7 @@ export function PainterDashboardComponent({ userData }) {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token')
-        const response = await axios.get('http://127.0.0.1:8000/api/profile/', {
+        const response = await axios.get('https://paintingauctionbackend-production.up.railway.app/api/profile/', {
           headers: { Authorization: `Bearer ${token}` }
         })
         setProfile({
@@ -80,7 +80,7 @@ export function PainterDashboardComponent({ userData }) {
   const handleBecomePainter = async () => {
     try {
       const token = localStorage.getItem('token')
-      await axios.post('http://127.0.0.1:8000/api/profile/become_painter/', {}, {
+      await axios.post('https://paintingauctionbackend-production.up.railway.app/api/profile/become_painter/', {}, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setIsPainter(true)
