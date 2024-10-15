@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { PainterDashboardComponent } from '@/components/painter-dashboard'
+import  PainterDashboardComponent  from '@/components/Painter-dashboard';
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import Loader from '../components/Loader';
@@ -19,7 +19,7 @@ function Dashboard() {
 
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/profile/', {
+        const response = await axios.get('https://paintingauctionbackend-production.up.railway.app/api/profile/', {
           headers: { Authorization: `Bearer ${token}` }
         })
         console.log("the user data is >>>>" + JSON.stringify(response.data))
@@ -49,6 +49,7 @@ function Dashboard() {
 
   return (
     <>
+    <PainterDashboardComponent/>
       <PainterDashboardComponent userData={userData} />
     </>
   )
