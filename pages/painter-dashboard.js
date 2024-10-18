@@ -49,7 +49,6 @@ function Dashboard() {
 
   return (
     <>
-    <PainterDashboardComponent/>
       <PainterDashboardComponent userData={userData} />
     </>
   )
