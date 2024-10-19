@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 // import { Pencil, Plus, Trash2 } from "lucide-react"
 
-export default PainterDashboardComponent({ userData }) {
+export default function PainterDashboardComponent({ userData }) {
   const [profile, setProfile] = useState({
     name: "",
     bio: "",
