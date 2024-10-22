@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import Navbar from '@/components/LandingPage/Navbar';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ function Login() {
         localStorage.setItem('token', response.data.access); // Save the access token
         console.log('Login successful:', response.data);
         // alert('Login successful!');
-        router.push('/painter-dashboard');
+        router.push('/PainterDashboar');
       }
     } catch (error) {
       console.error('Login error:', error.response ? error.response.data : error.message);
@@ -35,7 +36,11 @@ function Login() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900">
+           
+
       {/* Background Video */}
       <video
         autoPlay
@@ -92,6 +97,7 @@ function Login() {
         </div>
       </form>
     </div>
+    </>
   );
 }
 

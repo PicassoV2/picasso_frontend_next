@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Herosection from './Herosection';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 const LandingPage = () => {
   // Placeholder for artPieces data
