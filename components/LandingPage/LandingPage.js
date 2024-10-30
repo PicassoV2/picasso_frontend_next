@@ -5,10 +5,15 @@ import Footer from './Footer';
 
 const LandingPage = () => {
   // Placeholder for artPieces data
+  // const artPieces = [
+  //   { id: 1, title: 'Artwork 1', imageUrl: '/placeholder1.jpg' },
+  //   { id: 2, title: 'Artwork 2', imageUrl: '/placeholder2.jpg' },
+  //   { id: 3, title: 'Artwork 3', imageUrl: '/placeholder3.jpg' },
+  // ];
   const artPieces = [
-    { id: 1, title: 'Artwork 1', imageUrl: '/placeholder1.jpg' },
-    { id: 2, title: 'Artwork 2', imageUrl: '/placeholder2.jpg' },
-    { id: 3, title: 'Artwork 3', imageUrl: '/placeholder3.jpg' },
+    { id: 1, title: 'Artwork 1', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
+    { id: 2, title: 'Artwork 2', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
+    { id: 3, title: 'Artwork 3', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
   ];
 
   return (
