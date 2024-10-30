@@ -29,8 +29,8 @@ const LandingPage = () => {
               <Link href={`/artwork/${piece.id}`} key={piece.id}>
                 <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                   <img
-                    src={artPieces.imageUrl}
-                    alt={artPieces.title}
+                    src={piece.imageUrl}
+                    alt={piece.title}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">
