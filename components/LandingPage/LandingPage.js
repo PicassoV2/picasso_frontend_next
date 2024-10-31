@@ -11,9 +11,9 @@ const LandingPage = () => {
   //   { id: 3, title: 'Artwork 3', imageUrl: '/placeholder3.jpg' },
   // ];
   const artPieces = [
-    { id: 1, title: 'Artwork 1', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
-    { id: 2, title: 'Artwork 2', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
-    { id: 3, title: 'Artwork 3', imageUrl: 'https://asset.cloudinary.com/dehnjdei5/85717329cecfe1124dbfe5ca5a778511' },
+    { id: 1, title: 'Artwork 1', imageUrl: 'https://res.cloudinary.com/dehnjdei5/image/upload/v1730304297/Bondage-min_nljzl4.jpg' },
+    { id: 2, title: 'Artwork 2', imageUrl: 'https://res.cloudinary.com/dehnjdei5/image/upload/v1730304297/Bondage-min_nljzl4.jpg' },
+    { id: 3, title: 'Artwork 3', imageUrl: 'https://res.cloudinary.com/dehnjdei5/image/upload/v1730304297/Bondage-min_nljzl4.jpg' },
   ];
 
   return (
