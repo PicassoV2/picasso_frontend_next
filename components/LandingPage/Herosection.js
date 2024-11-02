@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showVR, setShowVR] = useState(false);
 
   const handleExploreClick = () => {
     setShowModal(true);
+  };
+
+  const handleVRClick = () => {
+    setShowVR(true);
   };
 
   return (
@@ -25,6 +30,13 @@ const HomePage = () => {
           >
             Explore Now
           </button>
+
+          <button
+            onClick={handleVRClick}
+            className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-400"
+          >
+            Enter Exhibition
+          </button>
         </div>
       </section>
 
@@ -40,6 +52,21 @@ const HomePage = () => {
               onClick={() => setShowModal(false)} // Close modal on click
             >
               Register
+            </a>
+          </div>
+        </div>
+      )}
+
+      {showVR && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm mx-auto">
+            <p className="mb-4">Entering VR Art Gallery.</p>
+            <a
+              href="https://www.artsteps.com/view/6725e530e7b6431b9e1d371c" // Link to the registration page
+              className="inline-block px-4 py-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-400"
+              onClick={() => setShowVR(false)} // Close modal on click
+            >
+              Enter
             </a>
           </div>
         </div>
