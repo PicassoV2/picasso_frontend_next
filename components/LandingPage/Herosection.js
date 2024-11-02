@@ -28,7 +28,7 @@ const HomePage = () => {
             onClick={handleExploreClick}
             className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-400"
           >
-            Explore Now
+            Register
           </button>
 
           <button
@@ -60,7 +60,7 @@ const HomePage = () => {
       {showVR && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm mx-auto">
-            <p className="mb-4">Entering VR Art Gallery.</p>
+          <h3 className="text-xl font-bold mb-4">Mobile Users Please Switch to Landscape View for best experience!</h3>
             <a
               href="/vrlandingpage" // Link to the registration page
               className="inline-block px-4 py-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-400"
