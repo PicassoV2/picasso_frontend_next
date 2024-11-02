@@ -3,9 +3,8 @@ import React from 'react'
 function vrlandingpage() {
   return (
     <div>
-      <p>This is the VR landing</p>
       
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/G0eKzU_fV00?si=EuJjX7X23J3mBnF_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="1600" height="800" src="https://www.artsteps.com/embed/6725e530e7b6431b9e1d371c/560/315" frameborder="0" allowfullscreen></iframe>
 
     </div>
   )

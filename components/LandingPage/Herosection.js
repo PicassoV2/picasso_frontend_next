@@ -62,7 +62,7 @@ const HomePage = () => {
           <div className="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm mx-auto">
             <p className="mb-4">Entering VR Art Gallery.</p>
             <a
-              href="https://www.artsteps.com/view/6725e530e7b6431b9e1d371c" // Link to the registration page
+              href="/vrlandingpage" // Link to the registration page
               className="inline-block px-4 py-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-400"
               onClick={() => setShowVR(false)} // Close modal on click
             >
