@@ -59,7 +59,13 @@ const HomePage = () => {
 
       {showVR && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm mx-auto">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm mx-auto relative">
+          <button
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            onClick={() => setShowVR(false)}
+          >
+            ×
+          </button>
           <h3 className="text-xl font-bold mb-4">Mobile Users Please Switch to Landscape View for best experience!</h3>
             <a
               href="/vrlandingpage" // Link to the registration page
@@ -71,7 +77,7 @@ const HomePage = () => {
           </div>
         </div>
       )}
-    </div>
+    </div>   
   );
 };
 
