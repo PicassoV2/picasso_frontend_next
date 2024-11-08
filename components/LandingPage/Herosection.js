@@ -15,6 +15,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
+       <Navbar/>
       {/* Hero Section */}
       <section
         className="h-screen bg-cover bg-center flex flex-col justify-center items-center"
