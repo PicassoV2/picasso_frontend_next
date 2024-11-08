@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import Navbar from '@/components/navbar';
+import Navbar from '@/components/Navbar';
 
 function Login() {
 
