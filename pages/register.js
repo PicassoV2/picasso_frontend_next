@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from '@/components/navbar';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -29,11 +28,7 @@ function Register() {
   };
 
   return (
-    <>
-     <Navbar/>
-  
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900">
-     
       {/* Background Video */}
       <video
         autoPlay
@@ -102,7 +97,6 @@ function Register() {
         </div>
       </form>
     </div>
-    </>
   );
 }
 

@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import Navbar from '@/components/navbar';
 
 function Login() {
-
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -37,10 +35,7 @@ function Login() {
   };
 
   return (
-    <>
-     <Navbar/>
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900">
-     
       {/* Background Video */}
       <video
         autoPlay
@@ -97,7 +92,6 @@ function Login() {
         </div>
       </form>
     </div>
-    </>
   );
 }
 
