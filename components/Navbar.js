@@ -1,10 +1,35 @@
 'use client'
-
 import * as React from "react"
 import Link from "next/link"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const [userData, setUserData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token") // Get token from localStorage or context
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get('https://paintingauctionbackend-production.up.railway.app/api/profile/', {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        setUserData(response.data)
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error fetching user data:', error)
+        setIsLoading(false)
+      }
+    }
+    
+    if (token) {
+      fetchUserData()
+    } else {
+      setIsLoading(false)
+    }
+  }, [])
 
   return (
     <nav className="bg-gray-900 border-b border-gray-700">
@@ -12,11 +37,6 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            {/* <img
-              className="h-8 w-auto"
-              src="/placeholder.svg?height=32&width=32"
-              alt="Logo"
-            /> */}
             <h2 className="text-gray-300">Picasso</h2>
           </Link>
 
@@ -46,22 +66,32 @@ export default function Navbar() {
             <Link href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               About
             </Link>
-            <Link href="/explore" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              Explore
+            <Link href="/gallery" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              Gallery
             </Link>
             <Link href="/contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               Contact
             </Link>
           </div>
 
-          {/* Sign In and Sign Up Buttons (Desktop) */}
+          {/* User Links (Login/Username) */}
           <div className="hidden md:flex space-x-4">
-            <Link href="/login" className="text-gray-300 hover:text-white border border-gray-500 px-4 py-2 rounded-md">
-              Login
-            </Link>
-            <Link href="/register" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-              Register
-            </Link>
+            {isLoading ? (
+              <p className="text-gray-300">Loading...</p>
+            ) : userData ? (
+              <Link href="/painter-dashboard" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                {userData.username}
+              </Link>
+            ) : (
+              <>
+                <Link href="/login" className="text-gray-300 hover:text-white border border-gray-500 px-4 py-2 rounded-md">
+                  Login
+                </Link>
+                <Link href="/register" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                  Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
@@ -72,20 +102,28 @@ export default function Navbar() {
               <Link href="/about" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
                 About
               </Link>
-              <Link href="/explore" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
-                Explore
+              <Link href="/gallery" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
+                Gallery
               </Link>
               <Link href="/contact" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
                 Contact
               </Link>
             </div>
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link href="/signup" className="w-full text-gray-300 hover:text-white border border-gray-500 px-4 py-2 rounded-md">
-                Sign Up
-              </Link>
-              <Link href="/signin" className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-                Sign In
-              </Link>
+              {userData ? (
+                <Link href="/painter-dashboard" className="w-full text-gray-300 hover:text-white border border-gray-500 px-4 py-2 rounded-md">
+                  {userData.username}
+                </Link>
+              ) : (
+                <>
+                  <Link href="/login" className="w-full text-gray-300 hover:text-white border border-gray-500 px-4 py-2 rounded-md">
+                    Login
+                  </Link>
+                  <Link href="/register" className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}
